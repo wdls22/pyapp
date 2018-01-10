@@ -8,7 +8,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 # from flask_login import UserMixin
 # from flask_login import login_user
 # from flask_login import logout_user
-from wtforms import Form, BooleanField, TextField, PasswordField, validators
+# from wtforms import Form, BooleanField, TextField, PasswordField, validators
 
 
 

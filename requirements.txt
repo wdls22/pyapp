@@ -8,3 +8,4 @@ click>=2.0
 Werkzeug>=0.7
 flask-moment
 flask-wtf
+flask-sqlalchemy
