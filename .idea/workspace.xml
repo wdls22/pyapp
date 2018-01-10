@@ -2,37 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987a04f1-a439-433b-beb3-c42cb881a2e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/models.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/content/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/content/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/content/site.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/_references.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery-1.10.2.intellisense.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery-1.10.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery-1.10.2.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery-1.10.2.min.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery.validate-vsdoc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery.validate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery.validate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery.validate.unobtrusive.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/jquery.validate.unobtrusive.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/modernizr-2.6.2.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/respond.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/static/scripts/respond.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/layout1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wdls/flaskr.db" afterPath="$PROJECT_DIR$/wdls/flaskr.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wdls/__init__.py" afterPath="$PROJECT_DIR$/wdls/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wdls/templates/layout.html" afterPath="$PROJECT_DIR$/wdls/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wdls/views.py" afterPath="$PROJECT_DIR$/wdls/views.py" />
     </list>
     <ignored path="FlaskAzure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="434">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,7 +117,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wdls/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
@@ -186,9 +156,9 @@
         <option value="$PROJECT_DIR$/wdls/templates/layout1.html" />
         <option value="$PROJECT_DIR$/wdls/templates/show_entries.html" />
         <option value="$PROJECT_DIR$/wdls/models.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/wdls/__init__.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -835,14 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -855,6 +817,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
