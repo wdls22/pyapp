@@ -10,7 +10,6 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from wtforms import Form, BooleanField, TextField, PasswordField, validators
 
 
-
 ISOTIMEFORMAT = '%Y-%m-%d %X'
 
 class RegistrationForm(Form):
