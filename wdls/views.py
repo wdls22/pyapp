@@ -7,22 +7,22 @@ from os import environ
 from sqlite3 import dbapi2 as sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
-# from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from wtforms import Form, BooleanField, TextField, PasswordField, validators
 
 
 
 ISOTIMEFORMAT = '%Y-%m-%d %X'
 
-# class RegistrationForm(Form):
-#     username = TextField('Username', [validators.Length(min=3, max=25)])
-#     email = TextField('Email Address', [validators.Length(min=6, max=35)])
-#     password = PasswordField('New Password', [
-#         validators.Required(),
-#         validators.EqualTo('confirm', message='Passwords must match')
-#     ])
-#     confirm = PasswordField('Repeat Password')
-#     accept_tos = BooleanField('I accept the TOS', [validators.Required()])
-#
+class RegistrationForm(Form):
+    username = TextField('Username', [validators.Length(min=3, max=25)])
+    email = TextField('Email Address', [validators.Length(min=6, max=35)])
+    password = PasswordField('New Password', [
+        validators.Required(),
+        validators.EqualTo('confirm', message='Passwords must match')
+    ])
+    confirm = PasswordField('Repeat Password')
+    accept_tos = BooleanField('I accept the TOS', [validators.Required()])
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
