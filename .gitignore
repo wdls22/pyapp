@@ -36,5 +36,5 @@ coverage.xml
 *.log
 
 venv
-*.db
+
 
