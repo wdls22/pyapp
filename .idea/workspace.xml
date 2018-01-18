@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987a04f1-a439-433b-beb3-c42cb881a2e7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/wdls.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/auth/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/auth/forms.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/auth/views.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/exceptions.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/main/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/main/errors.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/main/views.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/models.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/404.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/auth/layout.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/auth/login.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/auth/registration.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/base.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/templates/login_old.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/wdls/webdeploy/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/.idea/FlaskAzure.iml" afterPath="$PROJECT_DIR$/.idea/FlaskAzure.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/flaskr.db" afterPath="$PROJECT_DIR$/flaskr.db" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
-      <change beforePath="$PROJECT_DIR$/runserver.py" afterPath="$PROJECT_DIR$/runserver.py" />
-      <change beforePath="$PROJECT_DIR$/wdls/__init__.py" afterPath="$PROJECT_DIR$/wdls/__init__.py" />
-      <change beforePath="$PROJECT_DIR$/wdls/config/__init__.py" afterPath="$PROJECT_DIR$/config.py" />
-      <change beforePath="$PROJECT_DIR$/wdls/config/config.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/wdls/templates/layout.html" afterPath="$PROJECT_DIR$/wdls/templates/layout.html" />
-      <change beforePath="$PROJECT_DIR$/wdls/templates/login.html" afterPath="$PROJECT_DIR$/wdls/templates/auth/login_old.html" />
-      <change beforePath="$PROJECT_DIR$/wdls/templates/show_entries.html" afterPath="$PROJECT_DIR$/wdls/templates/show_entries.html" />
-      <change beforePath="$PROJECT_DIR$/wdls/templates/user_entries.html" afterPath="$PROJECT_DIR$/wdls/templates/user_entries.html" />
-      <change beforePath="$PROJECT_DIR$/wdls/views.py" afterPath="$PROJECT_DIR$/wdls/views.py" />
-      <change beforePath="$PROJECT_DIR$/web.config" afterPath="$PROJECT_DIR$/web.config" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/webdeploy/__init__.py" />
+      <change beforePath="$PROJECT_DIR$/wdls/webdeploy/__init__.py" afterPath="" />
     </list>
     <ignored path="FlaskAzure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,14 +37,14 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+            <state relative-caret-position="52">
+              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web.config" pinned="false" current-in-tab="true">
+      <file leaf-file-name="web.config" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web.config">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="420">
@@ -107,8 +78,8 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wdls/webdeploy/__init__.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/webdeploy/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
               <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
@@ -243,6 +214,7 @@
         <option value="$PROJECT_DIR$/wdls/main/views.py" />
         <option value="$PROJECT_DIR$/wdls/webdeploy/__init__.py" />
         <option value="$PROJECT_DIR$/web.config" />
+        <option value="$PROJECT_DIR$/webdeploy/__init__.py" />
       </list>
     </option>
   </component>
@@ -278,6 +250,11 @@
               <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
               <item name="wdls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
+              <item name="webdeploy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -493,8 +470,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="684" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.874183" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.874183" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -531,13 +509,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ptvs_virtualenv_proxy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="96" column="26" lean-forward="false" selection-start-line="96" selection-start-column="4" selection-end-line="96" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -887,14 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="22" column="7" lean-forward="false" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wdls/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -925,10 +888,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wdls/webdeploy/__init__.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="52">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="27" />
           <folding />
         </state>
       </provider>
@@ -937,6 +900,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="55" lean-forward="true" selection-start-line="28" selection-start-column="55" selection-end-line="28" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wdls/webdeploy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webdeploy/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
