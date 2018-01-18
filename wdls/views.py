@@ -1,39 +1,16 @@
 from datetime import datetime
 from flask import render_template
-from wdls import app
 import os
 import time
 from os import environ
 from sqlite3 import dbapi2 as sqlite3
-from flask import Flask, request, session, g, redirect, url_for, abort, \
+from flask import current_app, request, session, g, redirect, url_for, abort, \
      render_template, flash
-from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from wtforms import Form, BooleanField, TextField, PasswordField, validators, StringField
 
 
-ISOTIMEFORMAT = '%Y-%m-%d %X'
-
-class RegistrationForm(Form):
-    username = TextField('Username', [validators.Length(min=3, max=25)])
-    email = TextField('Email Address', [validators.Length(min=6, max=35)])
-    password = PasswordField('New Password', [
-        validators.Required(),
-        validators.EqualTo('confirm', message='Passwords must match')
-    ])
-    confirm = PasswordField('Repeat Password')
-    accept_tos = BooleanField('I accept the TOS', [validators.Required()])
-
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegistrationForm(request.form)
-    if request.method == 'POST' and form.validate():
-        g.db.execute('insert into users (name, password, email) values (?, ?, ?)',
-                     [request.form['username'], request.form['password'], request.form['email']])
-        g.db.commit()
-
-        flash('Thanks for registering')
-        return redirect(url_for('login'))
-    return render_template('register.html', form=form)
+time_format = '%Y-%m-%d %X'
+app = current_app
 
 
 @app.route('/login1', methods=['GET', 'POST'])
@@ -147,32 +124,6 @@ def show_user_entries():
     return render_template('show_entries.html', entries=entries)
 
 
-@app.route('/add', methods=['POST'])
-def add_entry():
-    if not session.get('logged_in'):
-        abort(401)
-    if request.form['title'] == "" or request.form['text'] == "":
-        flash('empty is illegal')
-        return redirect(url_for('show_entries'))
-    g.db.execute('insert into entries (title, text, times) values (?, ?, ?)',
-                 [request.form['title'], request.form['text'], time.strftime(ISOTIMEFORMAT, time.localtime())])
-    g.db.commit()
-    print time.strftime(ISOTIMEFORMAT, time.localtime())
-    flash('New entry was successfully posted')
-    return redirect(url_for('show_entries'))
-
-
-@app.route('/delete', methods=['POST'])
-def delete_entry():
-    if not session.get('logged_in'):
-        flash('please login first')
-        return redirect(url_for('login'))
-    g.db.execute('DELETE FROM entries WHERE id = ?',
-                 [request.form['entry_id']])
-    g.db.commit()
-    return redirect(url_for('show_entries'))
-
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
@@ -190,13 +141,6 @@ def login():
 
 @app.route('/sign_in', methods=['GET', 'POST'])
 def sign_in():
-    return redirect(url_for('show_entries'))
-
-
-@app.route('/logout')
-def logout():
-    session.pop('logged_in', None)
-    flash('You were logged out')
     return redirect(url_for('show_entries'))
 
 

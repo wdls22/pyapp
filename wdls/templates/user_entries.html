@@ -1,7 +1,7 @@
 {% extends "user_layout.html" %}
 {% block body %}
   {% if session.logged_in %}
-    <form action="{{ url_for('add_entry') }}" method="post" class="add-entry">
+    <form action="{{ url_for('main.add_entry') }}" method="post" class="add-entry">
       <dl>
         <dt>Title:
         <dd><input type="text" size="30" name="title">
@@ -14,7 +14,7 @@
   <ul class="entries">
   {% for entry in entries %}
     <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}<h5>{{ entry.times }}</h5></li>
-      <form action="{{ url_for('delete_entry') }}" method="post" class="delete-entry">
+      <form action="{{ url_for('main.delete_entry') }}" method="post" class="delete-entry">
           <input type="hidden" name="entry_id" value="{{ entry.id }}">
           <input type="submit" value="Delete" />
       </form>

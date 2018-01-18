@@ -1,5 +1,6 @@
 Flask==0.12.1
 flask_login
+flask-login
 wtforms
 jinja2>=2.4
 waitress==1.0.1
@@ -9,3 +10,6 @@ Werkzeug>=0.7
 flask-moment
 flask-wtf
 flask-sqlalchemy
+flask_bootstrap
+bleach
+markdown

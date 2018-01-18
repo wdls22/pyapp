@@ -4,10 +4,10 @@
 <div class="page">
   <h1>A SMALL APPLICATION</h1>
   <div class="metanav">
-  {% if not current_user.is_authenticated %}
+  {% if not session.logged_in %}
     <a href="{{ url_for('auth.login') }}">log in</a>
   {% else %}
-    <a href="{{ url_for('auth.logout') }}">log out</a>
+    <a href="{{ url_for('logout') }}">log out</a>
   {% endif %}
   </div>
   {% for message in get_flashed_messages() %}
