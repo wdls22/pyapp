@@ -34,7 +34,7 @@ coverage.xml
 
 # Django stuff:
 *.log
-
+.db
 venv
 
 
