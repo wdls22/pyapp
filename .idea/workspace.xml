@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987a04f1-a439-433b-beb3-c42cb881a2e7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.skipPythonDeployment" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.skipPythonDeployment" afterPath="$PROJECT_DIR$/runtime.txt" />
     </list>
     <ignored path="FlaskAzure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".skipPythonDeployment" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.skipPythonDeployment">
+      <file leaf-file-name="runtime.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/runtime.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -209,6 +209,7 @@
         <option value="$PROJECT_DIR$/web.config" />
         <option value="$PROJECT_DIR$/webdeploy/__init__.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/runtime.txt" />
       </list>
     </option>
   </component>
@@ -239,27 +240,6 @@
             <path>
               <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-              <item name="bin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-              <item name="wdls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-              <item name="wdls" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-              <item name="webdeploy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -475,6 +455,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1366" height="684" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.874183" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -513,14 +494,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wdls/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -911,6 +884,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.skipPythonDeployment">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/requirements.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -919,10 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.skipPythonDeployment">
+    <entry file="file://$PROJECT_DIR$/runtime.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
