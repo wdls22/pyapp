@@ -1,5 +1,4 @@
 Flask==0.12.1
-flask_login
 flask-login
 wtforms
 jinja2>=2.4
