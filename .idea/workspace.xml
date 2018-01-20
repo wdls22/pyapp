@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="987a04f1-a439-433b-beb3-c42cb881a2e7" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.skipPythonDeployment" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
     </list>
     <ignored path="FlaskAzure.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="3" lean-forward="false" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
+            <state relative-caret-position="557">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -53,7 +53,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".skipPythonDeployment" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".skipPythonDeployment" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.skipPythonDeployment">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -204,9 +204,9 @@
         <option value="$PROJECT_DIR$/wdls/templates/auth/registration.html" />
         <option value="$PROJECT_DIR$/wdls/templates/auth/login.html" />
         <option value="$PROJECT_DIR$/wdls/templates/base.html" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/wdls/auth/forms.py" />
         <option value="$PROJECT_DIR$/wdls/templates/show_entries.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -236,17 +236,6 @@
             <path>
               <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
               <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-              <item name="wdls" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="FlaskAzure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="FlaskAzure" type="462c0819:PsiDirectoryNode" />
-              <item name="wdls" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -834,14 +823,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="3" lean-forward="false" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wdls/auth/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -872,6 +853,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="557">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
