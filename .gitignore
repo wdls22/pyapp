@@ -37,6 +37,6 @@ coverage.xml
 *.db
 venv
 
-.vscode
+..vscode
 
 
