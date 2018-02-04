@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block page_content %}
+{% block title %}User - {{ user.username }}{% endblock %}
+
+    <div class="page-header">
+        <img class="img-rounded profile-thumbnail" src="{{ user.gravatar(size=256) }}">
+        <div class="profile-header">
+        <h1>{{ user.username }}</h1>
+        {% if user.name or user.location %}
+            <p>
+                {% if user.name %}{{ user.name }}{% endif %}
+                    <br>
+                    <font size="4">From</font>
+                    {% if user.location %}
+                    {{ user.location }}
+                {% endif %} 
+            </p>
+        {% endif %}
+        {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+        <p>{{ user.posts.count() }} posts. {{ user.comments.count() }} comments.</p>
+
+        <p>
+                {% if user != current_user %}
+                    {% if not current_user.is_following(user) %}
+                    <a href="{{ url_for('.follow', username=user.username) }}" class="btn btn-primary">Follow</a>
+                    {% else %}
+                    <a href="{{ url_for('.unfollow', username=user.username) }}" class="btn btn-default">Unfollow</a>
+                    {% endif %}
+                {% endif %}
+                <a href="{{ url_for('.followers', username=user.username) }}">Followers: <span class="badge">{{ user.followers.count() - 1 }}</span></a>
+                <a href="{{ url_for('.followed_by', username=user.username) }}">Following: <span class="badge">{{ user.followed.count() - 1 }}</span></a>
+                {% if current_user.is_authenticated and user != current_user and user.is_following(current_user) %}
+                | <span class="label label-default">Follows you</span>
+                {% endif %}
+        </p>
+
+        {% if user == current_user %}
+        <a class="btn btn-default" href="{{ url_for('main.edit_profile') }}">
+            Edit Profile </a>
+        {% endif %}
+      </div>
+
+        <br><br>
+        <div>
+            {% if user == current_user %}
+            {{ wtf.quick_form(form) }}  
+            {% endif %}
+        </div>
+
+    </div>
+    <ul class="posts">
+    {% for post in posts %} 
+    <li class="post">
+        <div class="post-thumbnail">
+        <a href="{{ url_for('.user', username=post.author.username) }}">
+        <img class="img-rounded" src="{{ post.author.gravatar(size=40) }}">
+        </a> 
+        </div>
+        <div class="post-date">{{ moment(post.timestamp).format('YYYY-MM-DD HH:mm:ss') }}</div>
+                 <div class="post-author">
+                     <a href="{{ url_for('.user', username=post.author.username) }}">
+                         {{ post.author.username }}
+                    </a>
+                 </div>
+                 <div class="post-body">{{ post.body }}</div>
+                    
+                    {% if post.author_id|int == current_user.get_id()|int %}
+                    <form action="{{ url_for('main.delete_post', username=post.author.username) }}" method="post" class="delete-entry">
+                        <input type="hidden" name="post_id" value="{{ post.id }}">
+                        <input type="submit" value="Delete" />
+                    </form>
+                    {% endif %}
+                <br>
+    </li>
+    {% endfor %}
+    </ul>
+    <div class="pagination">
+        {{ macros.pagination_widget(pagination, '.user', username=current_user.username) }}
+    </div>
+    
+{% endblock %}

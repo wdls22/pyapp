@@ -12,3 +12,6 @@ flask-sqlalchemy
 flask_bootstrap
 bleach
 markdown
+flask-pagedown 
+markdown 
+bleach

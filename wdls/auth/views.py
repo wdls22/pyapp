@@ -72,4 +72,3 @@ def change_email_request():
         else:
             flash('Invalid email or password.')
     return render_template("auth/change_email.html", form=form)
-

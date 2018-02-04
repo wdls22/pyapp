@@ -1,6 +1,7 @@
 import os
-basedir = os.path.abspath(os.path.dirname(__file__))
 
+basedir = os.path.abspath(os.path.dirname(__file__))
+print basedir
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
@@ -9,6 +10,8 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     USERNAME = 'admin'
     PASSWORD = 'default'
+    FLASKY_POSTS_PER_PAGE = 10
+    FLASKY_FOLLOWERS_PER_PAGE = 10
 
 
     @staticmethod
@@ -25,12 +28,12 @@ class DevelopmentConfig(Config):
 class TestingConfig(Config):
     TESTING = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
+        'sqlite:///' + os.path.join(basedir, 'test.db')
 
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'flaskr.sqlite')
+        'sqlite:///' + os.path.join(basedir, 'production.db')
 
 
 config = {

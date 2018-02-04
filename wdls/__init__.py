@@ -10,6 +10,7 @@ from flask_login import LoginManager
 from config import config
 from auth import login_manager
 from models import db, User
+from flask_moment import Moment
 # from flask_login import UserMixin
 # from flask_login import login_user
 # from flask_login import logout_user
@@ -22,7 +23,7 @@ from .auth import auth as auth_blueprint
 # create our little application :)
 
 bootstrap = Bootstrap()
-
+moment = Moment()
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -31,6 +32,7 @@ def create_app(config_name):
     login_manager.init_app(app)
     config[config_name].init_app(app)
     bootstrap.init_app(app)
+    moment.init_app(app)
     db.init_app(app)
     with app.app_context():
         db.create_all()

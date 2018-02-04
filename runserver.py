@@ -3,6 +3,7 @@ This script runs the FlaskWebProject1 application using a development server.
 """
 
 from os import environ
+
 from wdls import create_app
 
 if __name__ == '__main__':
