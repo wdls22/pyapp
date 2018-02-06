@@ -37,6 +37,7 @@ coverage.xml
 *.db
 venv
 
+
 bin
 env
 .vscode
