@@ -77,7 +77,7 @@
     {% endfor %}
     </ul>
     <div class="pagination">
-        {{ macros.pagination_widget(pagination, '.user', username=current_user.username) }}
+        {{ macros.pagination_widget(pagination, '.user', username=user.username) }}
     </div>
     
 {% endblock %}
