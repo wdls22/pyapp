@@ -319,6 +319,7 @@ class Post(db.Model):
             raise ValidationError('post does not have a body')
         return Post(body=body)
 
+
 db.event.listen(Post.body, 'set', Post.on_changed_body)
 
 
