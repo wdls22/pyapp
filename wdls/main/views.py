@@ -51,7 +51,7 @@ def user(username):
     form = PostForm()
     user = User.query.filter_by(username=username).first()
     if user is None:
-        abort(404)
+        return '<h1>Hello, %s!</h1>' % username
     if hasattr(current_user, 'username') and current_user.username == username and \
             form.validate_on_submit():
         post = Post(body=form.body.data, author=current_user._get_current_object())
