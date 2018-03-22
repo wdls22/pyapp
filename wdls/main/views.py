@@ -48,7 +48,6 @@ def add_entry():
 
 @main.route('/user/<username>', methods=['GET', 'POST'])
 def user(username):
-    username = urllib.unquote(username)
     form = PostForm()
     user = User.query.filter_by(username=username).first()
     if user is None:
