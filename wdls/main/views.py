@@ -2,6 +2,7 @@
 import os
 import time
 import urllib
+import utinity
 from datetime import datetime
 from flask import render_template, redirect, url_for, flash, request, abort, current_app
 from . import main
@@ -9,6 +10,8 @@ from ..models import Entries, db, User, Post
 from .forms import EditProfileForm, PostForm
 from flask_login import login_required, current_user
 from flask_moment import Moment
+
+
 
 @main.route('/')
 @main.route('/home')
@@ -47,12 +50,14 @@ def add_entry():
     flash('New entry was successfully posted')
     return redirect(url_for('main.show_entries'))
 
+
 @main.route('/user/<username>', methods=['GET', 'POST'])
 def user(username):
+    username = utinity.convert_url_uni(username)
     form = PostForm()
     user = User.query.filter_by(username=username).first()
     if user is None:
-        return '<h1>Hello, %s!</h1>' % username
+        return abort(404)
     if hasattr(current_user, 'username') and current_user.username == username and \
             form.validate_on_submit():
         post = Post(body=form.body.data, author=current_user._get_current_object())
@@ -85,6 +90,7 @@ def edit_profile():
 
 @main.route('/post/<username>', methods=['GET', 'POST'])
 def post(username):
+    username = utinity.convert_url_uni(username)
     form = PostForm()
     if current_user.username == username and \
             form.validate_on_submit():
@@ -97,6 +103,7 @@ def post(username):
 @main.route('/<username>/delete', methods=['POST'])
 @login_required
 def delete_post(username):
+    username = utinity.convert_url_uni(username)
     id = request.form['post_id']
     post = Post.query.filter_by(id=id).first()
     if int(post.author_id) != int(current_user.get_id()):
@@ -110,6 +117,7 @@ def delete_post(username):
 @main.route('/follow/<username>')
 @login_required
 def follow(username):
+    username = utinity.convert_url_uni(username)
     user = User.query.filter_by(username=username).first()
     if user is None:
         flash('Invalid user.')
@@ -124,6 +132,7 @@ def follow(username):
 @main.route('/unfollow/<username>')
 @login_required
 def unfollow(username):
+    username = utinity.convert_url_uni(username)
     user = User.query.filter_by(username=username).first()
     if user is None:
         flash('Invalid user.')
@@ -138,6 +147,7 @@ def unfollow(username):
 
 @main.route('/followers/<username>')
 def followers(username):
+    username = utinity.convert_url_uni(username)
     user = User.query.filter_by(username=username).first() 
     if user is None:
         flash('Invalid user.')
@@ -154,6 +164,7 @@ def followers(username):
 
 @main.route('/followed_by/<username>')
 def followed_by(username):
+    username = utinity.convert_url_uni(username)
     user = User.query.filter_by(username=username).first()
     if user is None:
         flash('Invalid user.')
