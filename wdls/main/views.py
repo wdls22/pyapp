@@ -2,10 +2,10 @@
 import os
 import time
 import urllib
-import utinity
 from datetime import datetime
 from flask import render_template, redirect, url_for, flash, request, abort, current_app
 from . import main
+from ..utinity import convert_url_uni
 from ..models import Entries, db, User, Post
 from .forms import EditProfileForm, PostForm
 from flask_login import login_required, current_user
