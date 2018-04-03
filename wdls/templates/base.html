@@ -23,8 +23,11 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+
                 <li><a href="{{ url_for('main.show_entries') }}">Public Hall</a></li>
                 <li><a href="{{ url_for('main.all_users') }}">All Users</a></li>
+                <li><a href="{{ url_for('main.zhihu_id') }}">Search Zhihu</a></li>
+
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}

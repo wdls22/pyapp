@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% import "_macros.html" as macros %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block page_content %}
+{% block title %}Pic{% endblock %}
+
+<meta name="referrer" content="no-referrer" />
+    <div class="page-header">
+        <div class="profile-header">
+        <h1>{{ qid }}</h1>
+
+      </div>
+
+        <br><br>
+        <div>
+
+    </div>
+    <ul class="posts">
+    {% for url in url_list %}
+    <li class="post">
+        <div>
+        <img src="{{ url }}">
+        </div>
+                <br>
+    </li>
+    {% endfor %}
+
+
+    </ul>
+
+    
+{% endblock %}

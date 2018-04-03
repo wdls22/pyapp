@@ -2,12 +2,12 @@
 import os
 import time
 import urllib
-from ..utinity import utinity
+from ..utinity import utinity, zhihu
 from datetime import datetime
 from flask import render_template, redirect, url_for, flash, request, abort, current_app
 from . import main
 from ..models import Entries, db, User, Post
-from .forms import EditProfileForm, PostForm
+from .forms import EditProfileForm, PostForm, GeneralForm
 from flask_login import login_required, current_user
 from flask_moment import Moment
 
@@ -71,6 +71,7 @@ def user(username):
     posts = pagination.items
     return render_template('user.html', user=user, form=form, posts=posts, pagination=pagination)
 
+
 @main.route('/edit-profile', methods=['GET', 'POST']) 
 @login_required
 def edit_profile():
@@ -87,6 +88,7 @@ def edit_profile():
     form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', form=form)
 
+
 @main.route('/post/<username>', methods=['GET', 'POST'])
 def post(username):
     username = utinity.convert_url_uni(username)
@@ -98,6 +100,7 @@ def post(username):
         return redirect(url_for('.index'))
     posts = Post.query.order_by(Post.timestamp.desc()).all()
     return render_template('post.html', form=form, posts=posts)
+
 
 @main.route('/<username>/delete', methods=['POST'])
 @login_required
@@ -112,6 +115,7 @@ def delete_post(username):
     db.session.commit()
     flash('Your post has been deleted successfully.')
     return redirect(url_for('main.user', username=current_user.username))
+
 
 @main.route('/follow/<username>')
 @login_required
@@ -128,6 +132,7 @@ def follow(username):
     flash('You are now following %s.' % username)
     return redirect(url_for('.user', username=username))
 
+
 @main.route('/unfollow/<username>')
 @login_required
 def unfollow(username):
@@ -143,6 +148,7 @@ def unfollow(username):
     db.session.commit()
     flash('You are not following %s anymore.' % username)
     return redirect(url_for('.user', username=username))
+
 
 @main.route('/followers/<username>')
 def followers(username):
@@ -161,6 +167,7 @@ def followers(username):
                         endpoint='.followers', pagination=pagination,
                         follows=follows)
 
+
 @main.route('/followed_by/<username>')
 def followed_by(username):
     username = utinity.convert_url_uni(username)
@@ -178,6 +185,7 @@ def followed_by(username):
                            endpoint='.followed_by', pagination=pagination,
                            follows=follows)
 
+
 @main.route('/all_users')
 def all_users():
     page = request.args.get('page', 1, type=int)
@@ -188,3 +196,18 @@ def all_users():
 
     return render_template('all_users.html', users=users, title='All users',
                            endpoint='.all_users', pagination=pagination)
+
+
+@main.route('/zhihu_id', methods=['GET', 'POST'])
+def zhihu_id():
+    form = GeneralForm()
+    qid = form.input.data
+    if form.validate_on_submit():
+        qid = form.input.data
+        url_list = zhihu.get_image_url(qid)
+        if url_list is not None:
+            return render_template('zhihu.html', endpoint='.zhihu_id', url_list=url_list, qid=qid)
+        return redirect(url_for('main.zhihu_id'))
+    return render_template('zhihu_id.html', form=form)
+
+

@@ -13,3 +13,4 @@ flask_bootstrap
 bleach
 markdown
 flask-pagedown
+requests
