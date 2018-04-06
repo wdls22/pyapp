@@ -19,3 +19,4 @@ class PostForm(FlaskForm):
 
 class GeneralForm(FlaskForm):
     input = StringField('id', validators=[Length(0, 64)])
+    submit = SubmitField('Submit')
