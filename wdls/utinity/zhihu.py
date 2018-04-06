@@ -15,7 +15,7 @@ import urllib2
 
 
 def get_image_url(qid):
-    # 利用正则表达式把源代码中的图片地址过滤出来
+    # use reg to get pic url
     # reg = r'data-actualsrc="(.*?)">'
     headers = {
         'User-Agent': "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36",
@@ -42,11 +42,11 @@ def get_image_url(qid):
         for answer in answers:
             tmp_list = []
             url_items = re.findall(imgreg, answer)
-            for item in url_items:  # 这里去掉得到的图片URL中的转义字符'\\'
+            for item in url_items:  # delete '\\' in  pic url
                 image_url = item.replace("\\", "")
                 tmp_list.append(image_url)
-                # 清理掉头像和去重 获取data-original的内容
-            tmp_list = list(set(tmp_list))  # 去重
+                # clean get data-original
+            tmp_list = list(set(tmp_list))  # distinct
             for item in tmp_list:
                 if item.endswith('r.jpg'):
                     print item
