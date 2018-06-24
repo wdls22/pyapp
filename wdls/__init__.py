@@ -13,6 +13,8 @@ from config import config
 from auth import login_manager
 from models import db, User
 from flask_moment import Moment
+from flask.ext.pagedown import PageDown
+
 # from flask_login import UserMixin
 # from flask_login import login_user
 # from flask_login import logout_user
@@ -22,10 +24,12 @@ from .main import main as main_blueprint
 from .auth import auth as auth_blueprint
 
 
-# create our little application :)
+# create our application :)
 
 bootstrap = Bootstrap()
 moment = Moment()
+pagedown = PageDown()
+
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -36,6 +40,7 @@ def create_app(config_name):
     bootstrap.init_app(app)
     moment.init_app(app)
     db.init_app(app)
+    pagedown.init_app(app)
     with app.app_context():
         db.create_all()
         db.session.commit()

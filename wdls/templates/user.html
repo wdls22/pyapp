@@ -45,8 +45,14 @@
         <br><br>
         <div>
             {% if user == current_user %}
-            {{ wtf.quick_form(form) }}  
+            {{ wtf.quick_form(form) }}
+
             {% endif %}
+
+            {% block scripts %}
+            {{ super() }}
+            {{ pagedown.include_pagedown() }}
+            {% endblock %}
         </div>
 
     </div>
@@ -64,7 +70,13 @@
                          {{ post.author.username }}
                     </a>
                  </div>
-                 <div class="post-body">{{ post.body }}</div>
+                  <div class="post-body">
+                    {% if post.body_html %}
+                    {{ post.body_html | safe }}
+                    {% else %}
+                    {{ post.body }}
+                    {% endif %}
+                  </div>
                     
                     {% if post.author_id|int == current_user.get_id()|int %}
                     <form action="{{ url_for('main.delete_post', username=post.author.username) }}" method="post" class="delete-entry">

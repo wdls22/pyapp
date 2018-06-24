@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
     SubmitField
 from wtforms.validators import DataRequired, Length, Email, Regexp, Required
+from flask.ext.pagedown.fields import PageDownField
 
 
 class EditProfileForm(FlaskForm):
@@ -13,7 +14,7 @@ class EditProfileForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    body = TextAreaField("What's on your mind now?", validators=[Required()])
+    body = PageDownField("What's on your mind now? (Use Markdown text.)", validators=[Required()])
     submit = SubmitField('Submit')
 
 
