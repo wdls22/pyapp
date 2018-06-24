@@ -14,3 +14,4 @@ bleach
 markdown
 flask-pagedown
 requests
+test
