@@ -14,6 +14,7 @@ from auth import login_manager
 from models import db, User
 from flask_moment import Moment
 from flask.ext.pagedown import PageDown
+from flask_ckeditor import CKEditor
 
 # from flask_login import UserMixin
 # from flask_login import login_user
@@ -49,5 +50,6 @@ def create_app(config_name):
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
     app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
+    ckeditor = CKEditor(app)
     return app
 

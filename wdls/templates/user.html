@@ -44,6 +44,8 @@
 
         <br><br>
         <div>
+                {{ ckeditor.load() }}
+
             {% if user == current_user %}
             {{ wtf.quick_form(form) }}
 
