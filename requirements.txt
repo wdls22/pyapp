@@ -15,3 +15,8 @@ markdown
 flask-pagedown
 requests
 flask-ckeditor
+flask-httpauth
+coverage
+dotenv
+flask_migrate
+Flask-Script

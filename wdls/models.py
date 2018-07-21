@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 import hashlib
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
-from flask_login import UserMixin
+from flask_login import UserMixin, AnonymousUserMixin
 from flask_sqlalchemy import SQLAlchemy
 from flask import current_app, url_for
 import bleach
@@ -250,13 +250,13 @@ class User(UserMixin, db.Model):
 
     def to_json(self):
         json_user = {
-            'url': url_for('api.get_user', id=self.id),
+            'url': url_for('api.get_user', id=self.id, _external=True),
             'username': self.username,
             'member_since': self.member_since,
             'last_seen': self.last_seen,
-            'posts_url': url_for('api.get_user_posts', id=self.id),
+            'posts_url': url_for('api.get_user_posts', id=self.id, _external=True),
             'followed_posts_url': url_for('api.get_user_followed_posts',
-                                          id=self.id),
+                                          id=self.id, _external=True),
             'post_count': self.posts.count()
         }
         return json_user
@@ -304,12 +304,12 @@ class Post(db.Model):
 
     def to_json(self):
         json_post = {
-            'url': url_for('api.get_post', id=self.id),
+            'url': url_for('api.get_post', id=self.id, _external=True),
             'body': self.body,
             'body_html': self.body_html,
             'timestamp': self.timestamp,
-            'author_url': url_for('api.get_user', id=self.author_id),
-            'comments_url': url_for('api.get_post_comments', id=self.id),
+            'author_url': url_for('api.get_user', id=self.author_id, _external=True),
+            'comments_url': url_for('api.get_post_comments', id=self.id, _external=True),
             'comment_count': self.comments.count()
         }
         return json_post
@@ -370,5 +370,11 @@ class Entries(db.Model):
     times = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+class AnonymousUser(AnonymousUserMixin):
+    def can(self, permissions):
+        return False
+
+    def is_administrator(self):
+        return False
 
 db.event.listen(Comment.body, 'set', Comment.on_changed_body)

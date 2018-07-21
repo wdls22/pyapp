@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, BooleanField, SelectField,\
     SubmitField
 from wtforms.validators import DataRequired, Length, Email, Regexp, Required
-from flask.ext.pagedown.fields import PageDownField
+from flask_pagedown.fields import PageDownField
 from flask_ckeditor import CKEditor, CKEditorField
 
 
