@@ -3,9 +3,10 @@ import os
 import time
 import urllib
 import hashlib
+import xml.etree.ElementTree as ET
 from ..utinity import utinity, zhihu
 from datetime import datetime
-from flask import render_template, redirect, url_for, flash, request, abort, current_app
+from flask import render_template, redirect, url_for, flash, request, abort, current_app, make_response
 from . import main
 from ..models import Entries, db, User, Post
 from .forms import EditProfileForm, PostForm, GeneralForm
@@ -236,3 +237,13 @@ def wechat():
             return echostr
         else:
             return ""
+    if request.method == "POST":
+        rec = request.stream.read()
+        xml_rec = ET.fromstring(rec)
+        tou = xml_rec.find('ToUserName').text
+        fromu = xml_rec.find('FromUserName').text
+        content = xml_rec.find('Content').text
+        xml_rep = "<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[%s]]></Content><FuncFlag>0</FuncFlag></xml>"
+        response = make_response(xml_rep % (fromu,tou,str(int(time.time())), content))
+        response.content_type='application/xml'
+        return response
