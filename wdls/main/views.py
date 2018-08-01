@@ -239,7 +239,8 @@ def wechat():
         else:
             return ""
     if request.method == "POST":
-        xml_rec = ET.fromstring(request.args)
+        rec=request.stream.read()
+        xml_rec = ET.fromstring(rec)
         ToUserName = xml_rec.find('ToUserName').text
         fromUser = xml_rec.find('FromUserName').text
         MsgType = xml_rec.find('MsgType').text
