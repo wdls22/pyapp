@@ -238,7 +238,7 @@ def wechat():
             return echostr
         else:
             return ""
-            
+
     if request.method == "POST":
         rec=request.stream.read()
         xml_rec = ET.fromstring(rec)
@@ -247,20 +247,7 @@ def wechat():
         MsgType = xml_rec.find('MsgType').text
         Content = xml_rec.find('Content').text
         MsgId = xml_rec.find('MsgId').text
-        if MsgType == 'text':
-            return '''<xml>
-                <ToUserName>![CDATA[%s]]</ToUserName>
-                <FromUserName>![CDATA[%s]]</FromUserName>
-                <CreateTime>%s</CreateTime>
-                <MsgType>![CDATA[text]]</MsgType>
-                <Content>![CDATA[%s]]</Content>
-                </xml>''' % (fromUser, ToUserName, int(time()), Content)
 
-        xml_recv = ET.fromstring(request.data)  #获取用户发送的原始数据
-        ToUserName = xml_recv.find("ToUserName").text   #获取之前发送的 目标用户（公众号）
-        FromUserName = xml_recv.find("FromUserName").text #获取之前的 消息来源用户
-        Content = xml_recv.find("Content").text     #获取之前 向服务器发送的消息
-                                                #构造xml格式，回复内容
         reply = """<xml>
                   <ToUserName> <![CDATA[%s]]></ToUserName>
                   <FromUserName><![CDATA[%s]]></FromUserName>
@@ -269,6 +256,6 @@ def wechat():
                   <Content><![CDATA[%s]]></Content>
                   </xml>"""
 
-        response = make_response(reply % (FromUserName, ToUserName, str(int(time.time())), Content))
+        response = make_response(reply % (fromUser, ToUserName, str(int(time())), Content))
         response.content_type = 'application/xml'
         return response 
