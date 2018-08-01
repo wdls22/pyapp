@@ -3,6 +3,8 @@ import os
 import time
 import urllib
 import hashlib
+import muban
+from time import time
 import xml.etree.ElementTree as ET
 from ..utinity import utinity, zhihu
 from datetime import datetime
@@ -238,12 +240,14 @@ def wechat():
         else:
             return ""
     if request.method == "POST":
-        rec = request.stream.read()
-        xml_rec = ET.fromstring(rec)
-        tou = xml_rec.find('ToUserName').text
-        fromu = xml_rec.find('FromUserName').text
-        content = xml_rec.find('Content').text
-        xml_rep = "<xml><ToUserName><![CDATA[%s]]></ToUserName><FromUserName><![CDATA[%s]]></FromUserName><CreateTime>%s</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA[%s]]></Content><FuncFlag>0</FuncFlag></xml>"
-        response = make_response(xml_rep % (fromu,tou,str(int(time.time())), content))
-        response.content_type='application/xml'
-        return response
+        xmldata = request.args
+        xml_rec = et.fromstring(xmldata)
+
+        ToUserName = xml_rec.find('ToUserName').text
+        fromUser = xml_rec.find('FromUserName').text
+        MsgType = xml_rec.find('MsgType').text
+        Content = xml_rec.find('Content').text
+        MsgId = xml_rec.find('MsgId').text
+
+        return muban.reply_muban(MsgType) % (fromUser, ToUserName, int(time()), Content)
+
