@@ -238,6 +238,7 @@ def wechat():
             return echostr
         else:
             return ""
+            
     if request.method == "POST":
         rec=request.stream.read()
         xml_rec = ET.fromstring(rec)
