@@ -240,8 +240,8 @@ def wechat():
             return ""
     if request.method == "POST":
         xmldata = request.args
-        xml_rec = et.fromstring(xmldata)
-
+        print xmldata
+        xml_rec = ET.fromstring(xmldata)
         ToUserName = xml_rec.find('ToUserName').text
         fromUser = xml_rec.find('FromUserName').text
         MsgType = xml_rec.find('MsgType').text
@@ -253,4 +253,5 @@ def wechat():
                 <FromUserName>![CDATA[%s]]</FromUserName>
                 <CreateTime>%s</CreateTime>
                 <MsgType>![CDATA[text]]</MsgType>
-                <Content>![C % (fromUser, ToUserName, int(time()), Content)
+                <Content>![CDATA[%s]]</Content>
+                </xml>''' % (fromUser, ToUserName, int(time()), Content)
