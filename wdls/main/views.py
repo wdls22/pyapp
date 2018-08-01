@@ -3,7 +3,6 @@ import os
 import time
 import urllib
 import hashlib
-import muban
 from time import time
 import xml.etree.ElementTree as ET
 from ..utinity import utinity, zhihu
@@ -248,6 +247,10 @@ def wechat():
         MsgType = xml_rec.find('MsgType').text
         Content = xml_rec.find('Content').text
         MsgId = xml_rec.find('MsgId').text
-
-        return muban.reply_muban(MsgType) % (fromUser, ToUserName, int(time()), Content)
-
+        if MsgType == 'text':
+            return '''<xml>
+                <ToUserName>![CDATA[%s]]</ToUserName>
+                <FromUserName>![CDATA[%s]]</FromUserName>
+                <CreateTime>%s</CreateTime>
+                <MsgType>![CDATA[text]]</MsgType>
+                <Content>![C % (fromUser, ToUserName, int(time()), Content)
