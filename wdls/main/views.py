@@ -213,7 +213,7 @@ def zhihu_id():
 
     
 
-@main.route('/',methods=['GET','POST'])
+@main.route('/wechat',methods=['GET','POST'])
 def wechat():
     if request.method == 'GET':
         #这里改写你在微信公众平台里输入的token
