@@ -3,6 +3,7 @@ import os
 import time
 import urllib
 import hashlib
+import requests
 from time import time
 import xml.etree.ElementTree as ET
 from ..utinity import utinity, zhihu
@@ -240,13 +241,15 @@ def wechat():
             return ""
 
     if request.method == "POST":
+        token = "1qup6gDhS2U.cwA.82g.JfcKFDfVXSg5ixHisrCJHz-x7nsLakSBlcNz0nCkRLQ"
         rec=request.stream.read()
-        xml_rec = ET.fromstring(rec)
+        parser = ET.XMLParser(encoding="utf-8")
+        xml_rec = ET.fromstring(rec, parser=parser)
         ToUserName = xml_rec.find('ToUserName').text
         fromUser = xml_rec.find('FromUserName').text
         MsgType = xml_rec.find('MsgType').text
         Content = xml_rec.find('Content').text
-        MsgId = xml_rec.find('MsgId').text
+        #MsgId = xml_rec.find('MsgId').text
 
         reply = """<xml>
                   <ToUserName> <![CDATA[%s]]></ToUserName>
@@ -256,6 +259,56 @@ def wechat():
                   <Content><![CDATA[%s]]></Content>
                   </xml>"""
 
-        response = make_response(reply % (fromUser, ToUserName, str(int(time())), Content))
+        # Start conversation
+        conversation_id = start_conversation(token)
+
+        activity = {
+        "type": "message",
+        "from": {
+            "id": "user1"
+        },
+        "text": Content
+        }
+
+        id = send_activity(token, activity, conversation_id)
+        received_message = receive_activity(token, conversation_id, id)
+
+        # End conversation
+        end_conversation(token, conversation_id)
+
+        response = make_response(reply % (fromUser, ToUserName, str(int(time())), received_message))
         response.content_type = 'application/xml'
         return response 
+
+
+def start_conversation(token):
+    url = "https://directline.botframework.com/v3/directline/conversations"
+    headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
+    response = requests.post(url, headers=headers)
+    conversation_id = response.json()['conversationId']
+    return conversation_id
+
+def end_conversation(token, conversation_id):
+    url = "https://directline.botframework.com/v3/directline/conversations/%s/activities" % conversation_id
+    headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
+    body = {
+    "type": "endOfConversation",
+    "from": {
+        "id": "user1"
+    }}
+    response = requests.post(url, headers=headers, json=body)
+
+
+def send_activity(token, activity, conversation_id):
+    url = "https://directline.botframework.com/v3/directline/conversations/%s/activities" % conversation_id
+    headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
+    response = requests.post(url, headers=headers, json=activity)
+    return response.json()['id']
+
+
+def receive_activity(token, conversation_id, id):
+    url = "https://directline.botframework.com/v3/directline/conversations/%s/activities" % conversation_id
+    headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
+    response = requests.get(url, headers=headers)
+    my_list = [x for x in response.json()['activities'] if (x.has_key('replyToId') and x['replyToId'] == id)]
+    return my_list[0]['text']
