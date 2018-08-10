@@ -4,8 +4,10 @@ import time
 import urllib
 import hashlib
 import requests
-from time import time
 import xml.etree.ElementTree as ET
+
+from .. import constants
+from time import time
 from ..utinity import utinity, zhihu
 from datetime import datetime
 from flask import render_template, redirect, url_for, flash, request, abort, current_app, make_response
@@ -213,7 +215,6 @@ def zhihu_id():
             return render_template('zhihu.html', endpoint='.zhihu_id', url_list=url_list, qid=qid)
         return redirect(url_for('main.zhihu_id'))
     return render_template('zhihu_id.html', form=form)
-
     
 
 @main.route('/wechat',methods=['GET','POST'])
@@ -265,7 +266,7 @@ def wechat():
         activity = {
         "type": "message",
         "from": {
-            "id": "user1"
+            "id": fromUser
         },
         "text": Content
         }
@@ -282,32 +283,34 @@ def wechat():
 
 
 def start_conversation(token):
-    url = "https://directline.botframework.com/v3/directline/conversations"
+    url = constants.url_constants.bot_conversation_url
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
     response = requests.post(url, headers=headers)
     conversation_id = response.json()['conversationId']
     return conversation_id
 
+
 def end_conversation(token, conversation_id):
-    url = "https://directline.botframework.com/v3/directline/conversations/%s/activities" % conversation_id
+    url = constants.url_constants.bot_conversation_activity_url % conversation_id
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
     body = {
     "type": "endOfConversation",
     "from": {
         "id": "user1"
     }}
-    response = requests.post(url, headers=headers, json=body)
+
+    requests.post(url, headers=headers, json=body)
 
 
 def send_activity(token, activity, conversation_id):
-    url = "https://directline.botframework.com/v3/directline/conversations/%s/activities" % conversation_id
+    url = constants.url_constants.bot_conversation_activity_url % conversation_id
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
     response = requests.post(url, headers=headers, json=activity)
     return response.json()['id']
 
 
 def receive_activity(token, conversation_id, id):
-    url = "https://directline.botframework.com/v3/directline/conversations/%s/activities" % conversation_id
+    url = constants.url_constants.bot_conversation_activity_url % conversation_id
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
     response = requests.get(url, headers=headers)
     my_list = [x for x in response.json()['activities'] if (x.has_key('replyToId') and x['replyToId'] == id)]
