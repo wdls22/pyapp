@@ -1,7 +1,6 @@
 Flask==0.12.1
 flask-login
 wtforms
-setuptools>=18.5
 jinja2>=2.4
 waitress==1.0.1
 itsdangerous>=0.21
