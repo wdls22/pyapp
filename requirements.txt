@@ -20,3 +20,5 @@ coverage
 dotenv
 flask_migrate
 Flask-Script
+pyOpenSSL
+idna
