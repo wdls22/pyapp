@@ -13,7 +13,6 @@ flask_bootstrap
 bleach
 markdown
 flask-pagedown
-requests
 flask-ckeditor
 flask-httpauth
 coverage
