@@ -22,5 +22,4 @@ Flask-Script
 pyOpenSSL
 ndg-httpsclient
 pyasn1
-idna
 request
