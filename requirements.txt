@@ -19,4 +19,4 @@ coverage
 dotenv
 flask_migrate
 Flask-Script
-request
+requests
