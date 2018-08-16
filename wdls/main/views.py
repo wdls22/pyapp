@@ -285,7 +285,7 @@ def wechat():
 def start_conversation(token):
     url = constants.url_constants.bot_conversation_url
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
-    response = requests.post(url, headers=headers)
+    response = requests.post(url, headers=headers, verify = False)
     conversation_id = response.json()['conversationId']
     return conversation_id
 
@@ -299,19 +299,19 @@ def end_conversation(token, conversation_id):
         "id": "user1"
     }}
 
-    requests.post(url, headers=headers, json=body)
+    requests.post(url, headers=headers, json=body, verify = False)
 
 
 def send_activity(token, activity, conversation_id):
     url = constants.url_constants.bot_conversation_activity_url % conversation_id
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
-    response = requests.post(url, headers=headers, json=activity)
+    response = requests.post(url, headers=headers, json=activity, verify = False)
     return response.json()['id']
 
 
 def receive_activity(token, conversation_id, id):
     url = constants.url_constants.bot_conversation_activity_url % conversation_id
     headers = {'Authorization': 'Bearer %s' % token, 'Content-Type': 'application/json'}
-    response = requests.get(url, headers=headers)
+    response = requests.get(url, headers=headers, verify = False)
     my_list = [x for x in response.json()['activities'] if (x.has_key('replyToId') and x['replyToId'] == id)]
     return my_list[0]['text']
